@@ -1,4 +1,4 @@
-
+<?php get_header(); ?>
 <body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
 <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
 <div class="layout-container flex h-full grow flex-col">
@@ -108,3 +108,6 @@
 </div>
 </section>
 </main>
+
+
+<?php get_footer(); ?>

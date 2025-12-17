@@ -16,48 +16,72 @@
             </div>
             <div class="w-full flex-1 bg-center bg-no-repeat aspect-square bg-cover rounded-xl @[480px]:h-auto @[480px]:min-w-[400px] @[864px]:w-full" data-alt="Abstract vibrant geometric shapes on a light background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDEyYbIZHGLcWFlIRuu4QmF5JA-iMFIzu0j0n82pOCdIVAWcq8dLm_cvffVqBTTLrpO_oJnl_quBCjcG5ZRpJIxWuM8t4ZSZlsW633l7X36NsQEa8jKuiD-TuuSGxoGKoM8pHj9fTkd96TWtnj25-4M9oiFbyaX3Ctt3K2Z4FwbPGncHitZQ2jFw4a7ss_2CUiImlL3cnlEYwZhsP2GX_uBf9X6iFQj2Rxi6vGihkt8GeFnbgkyWvvX85N8lUrSiz7PDsai-SIT8QKf");'></div>
         </div>
-    </div>
-    <section class="py-16 sm:py-24 border-t border-gray-200 dark:border-gray-800">
-        <div class="flex flex-col gap-8">
-            <h2 class="text-3xl font-bold text-center tracking-[-0.02em]">Recent Blog Posts</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                <div class="flex flex-col gap-4">
-                    <p class="text-sm text-subtle-text-light dark:text-subtle-text-dark">June 1, 2024</p>
-                    <h3 class="text-xl font-bold">The Future of UI/UX Design</h3>
-                    <p class="text-subtle-text-light dark:text-subtle-text-dark">Exploring upcoming trends and technologies that will shape user interfaces.</p>
-                    <a class="font-bold text-primary hover:underline" href="#">Read More</a>
+     </div>
+
+
+    <?php
+    $post_query = new WP_Query([
+        'post_type' => 'post',
+        'posts_per_page'  => 3,
+    ]);
+    if ($post_query->have_posts()) {
+    ?>
+
+        <section class="py-16 sm:py-24 border-t border-gray-200 dark:border-gray-800">
+            <div class="flex flex-col gap-8">
+                <h2 class="text-3xl font-bold text-center tracking-[-0.02em]">Recent Blog Posts</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+                    <?php
+                    while ($post_query->have_posts()) {
+                        $post_query->the_post();
+
+                    ?>
+                        <div class="flex flex-col gap-4">
+                            <p class="text-sm text-subtle-text-light dark:text-subtle-text-dark"><?php echo get_the_time() ?></p>
+                            <h3 class="text-xl font-bold"><?php echo get_the_title(); ?></h3>
+                            <p class="text-subtle-text-light dark:text-subtle-text-dark"> <?php echo get_the_content(); ?></p>
+                            <a class="font-bold text-primary hover:underline" href="#">Read More</a>
+                        </div>
+
+                    <?php
+                    }
+                    ?>
+
                 </div>
-                <div class="flex flex-col gap-4">
-                    <p class="text-sm text-subtle-text-light dark:text-subtle-text-dark">May 15, 2024</p>
-                    <h3 class="text-xl font-bold">A Guide to User-Centered Design</h3>
-                    <p class="text-subtle-text-light dark:text-subtle-text-dark">Practical steps to ensure your users are at the heart of your product.</p>
-                    <a class="font-bold text-primary hover:underline" href="#">Read More</a>
-                </div>
-                <div class="flex flex-col gap-4">
-                    <p class="text-sm text-subtle-text-light dark:text-subtle-text-dark">April 28, 2024</p>
-                    <h3 class="text-xl font-bold">Minimalism in Web Design</h3>
-                    <p class="text-subtle-text-light dark:text-subtle-text-dark">How 'less is more' can lead to more effective and beautiful websites.</p>
-                    <a class="font-bold text-primary hover:underline" href="#">Read More</a>
+                <div class="flex justify-center mt-4">
+                    <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-transparent border border-primary text-primary text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary hover:text-text-light transition-colors">
+                        <span class="truncate">View More</span>
+                    </button>
                 </div>
             </div>
-            <div class="flex justify-center mt-4">
-                <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-transparent border border-primary text-primary text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary hover:text-text-light transition-colors">
-                    <span class="truncate">View More</span>
-                </button>
-            </div>
-        </div>
-    </section>
+        </section>
+
+    <?php
+    }
+    wp_reset_postdata();
+
+    ?>
+
+
+
+
+
+
+
+
+
     <section class="py-16 sm:py-24 border-t border-gray-200 dark:border-gray-800">
         <div class="flex flex-col gap-8">
             <h2 class="text-3xl font-bold text-center tracking-[-0.02em]">Featured Projects</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 <div class="flex flex-col gap-4">
-                    <div class="w-full aspect-[4/3] bg-cover bg-center rounded-lg" data-alt="A clean dashboard user interface design." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDFmotvC11kJezCgDpPq7ewuGiFBBqNw-Slp1tWLGaNmYhkOozuILhzj031AJUltcHw8y-NVGlhKrUM9kEIqgsH1fk0obORFlDmTYGZY6xTPkwAHepESjZvCBHKpJmX6aEXB_l2eQPrZhlhXjrO58A_OPTZHoDRompd-oUYdlOi023norT3HYSI048z8vj4HHIBfy5UY2qrBYSKxYXXQV5FP2g1dtqlset_MtYbZY30-28dg_ROS4BKLtBBuM3JBRZ0gh25oXlu0u_Q");'></div>
+                    <div class="w-full aspect-4/3 bg-cover bg-center rounded-lg" data-alt="A clean dashboard user interface design." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDFmotvC11kJezCgDpPq7ewuGiFBBqNw-Slp1tWLGaNmYhkOozuILhzj031AJUltcHw8y-NVGlhKrUM9kEIqgsH1fk0obORFlDmTYGZY6xTPkwAHepESjZvCBHKpJmX6aEXB_l2eQPrZhlhXjrO58A_OPTZHoDRompd-oUYdlOi023norT3HYSI048z8vj4HHIBfy5UY2qrBYSKxYXXQV5FP2g1dtqlset_MtYbZY30-28dg_ROS4BKLtBBuM3JBRZ0gh25oXlu0u_Q");'></div>
                     <h3 class="text-xl font-bold">Project Dashboard UI</h3>
                     <p class="text-subtle-text-light dark:text-subtle-text-dark">A sleek and modern dashboard design for a project management application.</p>
                 </div>
                 <div class="flex flex-col gap-4">
-                    <div class="w-full aspect-[4/3] bg-cover bg-center rounded-lg" data-alt="A mobile application mockup for a fitness app." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAML4GlxYLkua2YCiWdF8_8YjcJ6t0JptXLhb-8b2cFJ-YtMa443poAlhpiVvDN8i6bmYU9f6QvAcP-aI3XTE96mmx7fljo7bsZCVZ4LNASOsw4YMTxrUnkXvrsJfx6VGQM6lLU28Emm49S9mbE1Nrtcd9cyF9-Mbs1Gi9M6iG9OyxW8ruR0n0h3SLDnalcVnsRBGScRocnWSuiuYGV3LzAXev9WKrUNgr3fV9K-av0DD03byMxQ7gw_cGYfTp3gzc6HVIsxoW4LmuD");'></div>
+                    <div class="w-full aspect-4/3 bg-cover bg-center rounded-lg" data-alt="A mobile application mockup for a fitness app." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAML4GlxYLkua2YCiWdF8_8YjcJ6t0JptXLhb-8b2cFJ-YtMa443poAlhpiVvDN8i6bmYU9f6QvAcP-aI3XTE96mmx7fljo7bsZCVZ4LNASOsw4YMTxrUnkXvrsJfx6VGQM6lLU28Emm49S9mbE1Nrtcd9cyF9-Mbs1Gi9M6iG9OyxW8ruR0n0h3SLDnalcVnsRBGScRocnWSuiuYGV3LzAXev9WKrUNgr3fV9K-av0DD03byMxQ7gw_cGYfTp3gzc6HVIsxoW4LmuD");'></div>
                     <h3 class="text-xl font-bold">Mobile Fitness App</h3>
                     <p class="text-subtle-text-light dark:text-subtle-text-dark">A user-friendly mobile app to track fitness goals and daily activity.</p>
                 </div>
@@ -88,8 +112,12 @@
 
         while ($post_query->have_posts()) {
             $post_query->the_post();
-            echo '<h1>' . get_the_title() . '</h1>';
-            echo the_content();
+
+    ?>
+            <h1><?php echo get_the_title() ?></h1>
+            <p><?php echo get_the_content() ?></p>
+
+    <?php
         }
     } else {
         echo 'no post found';
@@ -98,4 +126,3 @@
     ?>
 </main>
 
-<?php get_footer(); ?>

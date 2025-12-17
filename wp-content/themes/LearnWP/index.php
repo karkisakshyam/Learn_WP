@@ -9,7 +9,7 @@
                     <h2 class="text-base font-normal leading-normal text-subtle-text-light dark:text-subtle-text-dark"> I create intuitive and beautiful user experiences. Passionate about solving complex problems through clean code and user-centric design. </h2>
                 </div>
                 <div class="flex">
-                    <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-text-light text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
+                    <button lass="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-text-light text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
                         <span class="truncate">View My Work</span>
                     </button>
                 </div>

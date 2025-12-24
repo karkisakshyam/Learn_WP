@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main class="flex-grow">
+<main class="grow">
     <div class="@container py-16 sm:py-24">
         <div class="flex flex-col gap-10 @[864px]:flex-row @[864px]:items-center">
             <div class="flex flex-col gap-6 @[864px]:justify-center flex-1">

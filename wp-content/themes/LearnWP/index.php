@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main class="grow">
+<main class="flex-grow">
     <div class="@container py-16 sm:py-24">
         <div class="flex flex-col gap-10 @[864px]:flex-row @[864px]:items-center">
             <div class="flex flex-col gap-6 @[864px]:justify-center flex-1">
@@ -9,12 +9,14 @@
                     <h2 class="text-base font-normal leading-normal text-subtle-text-light dark:text-subtle-text-dark"> I create intuitive and beautiful user experiences. Passionate about solving complex problems through clean code and user-centric design. </h2>
                 </div>
                 <div class="flex">
-                    <button lass="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-text-light text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
+                    <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-text-light text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
                         <span class="truncate">View My Work</span>
                     </button>
-                </div>v class="w-full flex-1 bg-center bg-no-repeat aspect-square bg-cover rounded-xl @[480px]:h-auto @[480px]:min-w-[400px] @[864px]:w-full" data-alt="Abstract vibrant geometric shapes on a light background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDEyYbIZHGLcWFlIRuu4QmF5JA-iMFIzu0j0n82pOCdIVAWcq8dLm_cvffVqBTTLrpO_oJnl_quBCjcG5ZRpJIxWuM8t4ZSZlsW633l7X36NsQEa8jKuiD-TuuSGxoGKoM8pHj9fTkd96TWtnj25-4M9oiFbyaX3Ctt3K2Z4FwbPGncHitZQ2jFw4a7ss_2CUiImlL3cnlEYwZhsP2GX_uBf9X6iFQj2Rxi6vGihkt8GeFnbgkyWvvX85N8lUrSiz7PDsai-SIT8QKf");'></div>
+                </div>
+            </div>
+            <div class="w-full flex-1 bg-center bg-no-repeat aspect-square bg-cover rounded-xl @[480px]:h-auto @[480px]:min-w-[400px] @[864px]:w-full" data-alt="Abstract vibrant geometric shapes on a light background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDEyYbIZHGLcWFlIRuu4QmF5JA-iMFIzu0j0n82pOCdIVAWcq8dLm_cvffVqBTTLrpO_oJnl_quBCjcG5ZRpJIxWuM8t4ZSZlsW633l7X36NsQEa8jKuiD-TuuSGxoGKoM8pHj9fTkd96TWtnj25-4M9oiFbyaX3Ctt3K2Z4FwbPGncHitZQ2jFw4a7ss_2CUiImlL3cnlEYwZhsP2GX_uBf9X6iFQj2Rxi6vGihkt8GeFnbgkyWvvX85N8lUrSiz7PDsai-SIT8QKf");'></div>
         </div>
-     </div>
+    </div>
 
 
     <?php
@@ -36,10 +38,10 @@
 
                     ?>
                         <div class="flex flex-col gap-4">
-                            <p class="text-sm text-subtle-text-light dark:text-subtle-text-dark"><?php echo get_the_time() ?></p>
+                            <p class="text-sm text-subtle-text-light dark:text-subtle-text-dark"><?php echo get_the_date() ?></p>
                             <h3 class="text-xl font-bold"><?php echo get_the_title(); ?></h3>
-                            <p class="text-subtle-text-light dark:text-subtle-text-dark"> <?php echo get_the_content(); ?></p>
-                            <a class="font-bold text-primary hover:underline" href="#">Read More</a>
+                            <p class="text-subtle-text-light dark:text-subtle-text-dark"> <?php echo get_the_excerpt(); ?></p>
+                            <a class="font-bold text-primary hover:underline" href="<?php the_permalink() ?> ">Read More</a>
                         </div>
 
                     <?php
@@ -124,3 +126,4 @@
     ?>
 </main>
 
+<?php get_footer(); ?>

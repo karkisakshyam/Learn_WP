@@ -9,7 +9,8 @@ wp_enqueue_style('learnwp-style', get_stylesheet_uri(), [], '1.0.1', 'all');
 add_action ('wp_enqueue_scripts', 'learn_wp_styles');
 
 
-$args = array(
+function register_project_post_type(){
+    $args = array(
     'labels' => array(
             'name'          => 'Books',
             'singular_name' => 'Book',
@@ -28,3 +29,6 @@ $args = array(
 );
 
 register_post_type( 'book', $args );
+}
+
+add_action ('init', 'register_project_post_type');
